@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="PeoteView Samples" package="peote.view" version="0.6.5" company="Sylvio Sell - maitag" />
+	
+	<app main="samples.StartNewSample" path="Export" file="NewSample" />
+
+	<!-- or choose what sample to build with '-Dsample1' haxe condition -->
+	<app if="sample1" main="samples.GlyphTextRendering"         path="Export" file="GlyphTextRendering" />
+	<app if="sample2" main="samples.GlyphUnicodeTextRendering"  path="Export" file="GlyphUnicodeTextRendering" />
+	<app if="sample3" main="samples.MassAnim"                   path="Export" file="MassAnim" />
+	<app if="sample4" main="samples.Bunnys"                     path="Export" file="Bunnys" />
+	<app if="sample5" main="samples.BunnysTextureSwitch"        path="Export" file="BunnysTextureSwitch" />
+	<app if="sample6" main="samples.RandomLetter"               path="Export" file="RandomLetter" />
+	<app if="sample7" main="samples.Picking"                    path="Export" file="Picking" />
+	<app if="sample8" main="samples.Multitexture"               path="Export" file="Multitexture" />
+	<app if="sample9" main="samples.RenderToTexture"            path="Export" file="RenderToTexture" />
+	
+	<!--<android target-sdk-version="26" />-->
+	
+	<window fps="60" width="800" height="600" vsync="true" resizable="true" hardware="true" allow-shaders="true" require-shaders="true" depth-buffer="true" stencil-buffer="false" />
+	<window if="html5||android" fps="60" width="0" height="0" />
+	
+	<source path="Source" />
+
+	<haxelib name="lime" />
+	<haxelib name="peote-view" />
+	
+	<!-- this is for optimize interleave vertex stride (filled auto up to 8 bytecount) .. may buggy on some device -->
+	<!--<haxedef name="peote_fillstride" />-->
+	
+	<!-- shader float precision for html5 and raspberry pi (and android?) -->
+	<haxedef name="peote_vert_medium_precision" if="html5||rpi||android" />
+	<haxedef name="peote_frag_medium_precision" if="html5||rpi" /><!-- midestens -->
+
+	<!--<haxedef name="debugshader" />-->
+
+	<assets path="Assets" rename="assets" exclude="lime.svg" />
+	<icon path="Assets/lime.svg" />
+	
+</project>
