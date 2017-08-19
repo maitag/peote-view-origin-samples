@@ -25,7 +25,7 @@
 	<source path="Source" />
 
 	<haxelib name="lime" />
-	<haxelib name="peote-view" />
+	<haxelib name="peote-view" /><!-- install via: haxelib git peote-view https://github.com/maitag/peote-view  -->
 	
 	<!-- this is for optimize interleave vertex stride (filled auto up to 8 bytecount) .. may buggy on some device -->
 	<!--<haxedef name="peote_fillstride" />-->
@@ -36,7 +36,7 @@
 
 	<!--<haxedef name="debugshader" />-->
 
-	<assets path="Assets" rename="assets" exclude="lime.svg" />
+	<assets path="Assets" rename="assets" exclude="lime.svg" embed="false" />
 	<icon path="Assets/lime.svg" />
 	
 </project>

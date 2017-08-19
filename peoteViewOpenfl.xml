@@ -9,14 +9,14 @@
 	<source path="Source" />
 	
 	<haxelib name="openfl" />
-	<haxelib name="peote-view" />
+	<haxelib name="peote-view" /><!-- install via: haxelib git peote-view https://github.com/maitag/peote-view  -->
 
 	<!-- shader float precision for html5 and raspberry pi and android -->
 	<haxedef name="peote_vert_medium_precision" if="html5||rpi||android" />
 	<haxedef name="peote_frag_medium_precision" if="html5||rpi||android" />
 	<!-- <haxedef name="debugshader" /> -->
 	
-	<assets path="Assets" rename="assets" exclude="*.svg" />
+	<assets path="Assets" rename="assets" exclude="*.svg" embed="false" />
 	<icon path="Assets/openfl.svg" />
 	
 </project>
