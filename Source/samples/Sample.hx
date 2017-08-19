@@ -28,18 +28,17 @@ class Sample extends Application {
     public var zoom: Int = 1;
 	
 	private var peoteView:PeoteView;
-	private var startTime:Float;
 	
 	public function new() { super (); }
 	//public override function create(config:Config):Void [ super.create (config) };
 
-	public override function onWindowCreate(window:Window):Void
+	public override function onWindowCreate(_window:Window):Void
 	{
-		switch (window.renderer.context) {
+		switch (_window.renderer.context) {
 			case OPENGL (gl):
 				var gl:WebGLContext = gl;
-				width = window.width;
-				height = window.height;
+				width = _window.width;
+				height = _window.height;
 				trace ("gl.version:"+gl.version);
 				trace ("gl.type:" + gl.type);
 				
@@ -83,24 +82,24 @@ class Sample extends Application {
 	
 	// ------------------------------------------------------------
 	// ----------- EVENT HANDLER ----------------------------------
-	public override function onWindowResize (window:Window, width:Int, height:Int):Void
+	public override function onWindowResize (_window:Window, width:Int, height:Int):Void
 	{
-		//trace("onWindowResize:"+ window.width+','+ window.height);
+		//trace("onWindowResize:"+ _window.width+','+ _window.height);
 		/*
 		// hack for minimum width on cpp native
 		var w = Math.floor(Math.max(200, width));
 		var h = Math.floor(Math.max(200, height));
 		
-		if (w != width || h != height) window.resize(w, h);
+		if (w != width || h != height) _window.resize(w, h);
 		*/
 
-		this.width = window.width;
-		this.height = window.height;
+		this.width = _window.width;
+		this.height = _window.height;
 	}
 	
-	public override function onMouseMove (window:Window, x:Float, y:Float):Void
+	public override function onMouseMove (_window:Window, x:Float, y:Float):Void
 	{
-		trace("onMouseMove: " + x + "," + y );
+		//trace("onMouseMove: " + x + "," + y );
 		mouse_x = Std.int(x);
 		mouse_y = Std.int(y);
 		setOffsets();
@@ -115,7 +114,7 @@ class Sample extends Application {
 	public override function onTouchMove (touch:Touch):Void
 	{
 		trace("onTouchMove: " + touch.id + "," + touch.x + "," + touch.y );
-		mouse_x = Std.int(touch.x); //* window.width;
+		mouse_x = Std.int(touch.x); //* _window.width;
 		mouse_y = Std.int(touch.y);
 		setOffsets();
 	}
@@ -126,7 +125,7 @@ class Sample extends Application {
 		//trace("onTouchStart: " + touch.x + "," + touch.y );
 	}
 	
-	public override function onMouseDown (window:Window, x:Float, y:Float, button:Int):Void
+	public override function onMouseDown (_window:Window, x:Float, y:Float, button:Int):Void
 	{	
 		trace("onMouseDown: x=" + x + " y="+ y);
 		/*if ( button == 0) zoom++;
@@ -134,12 +133,12 @@ class Sample extends Application {
 		setOffsets();*/
 	}
 	
-	public override function onMouseUp (window:Window, x:Float, y:Float, button:Int):Void
+	public override function onMouseUp (_window:Window, x:Float, y:Float, button:Int):Void
 	{	
 		trace("onmouseup: "+button+" x=" + x + " y="+ y);
 	}
 	
-	public override function onMouseWheel (window:Window, deltaX:Float, deltaY:Float):Void
+	public override function onMouseWheel (_window:Window, deltaX:Float, deltaY:Float):Void
 	{	
 		//trace("onmousewheel: " + deltaX + ',' + deltaY );
 		if ( deltaY>0 ) zoom++;
@@ -157,7 +156,7 @@ class Sample extends Application {
 		trace(" --------- onRenderContextRestored ----------- ");		
 	}
 	
-	public override function onKeyDown (window:Window, keyCode:KeyCode, modifier:KeyModifier):Void
+	public override function onKeyDown (_window:Window, keyCode:KeyCode, modifier:KeyModifier):Void
 	{
 		switch (keyCode) {
 			case KeyCode.F:
@@ -181,7 +180,7 @@ class Sample extends Application {
 					else if (d.webkitExitFullscreen) d.webkitExitFullscreen();					
 				}
 				#else
-				window.fullscreen = !window.fullscreen;
+				_window.fullscreen = !_window.fullscreen;
 				#end				
 			default:
 		}

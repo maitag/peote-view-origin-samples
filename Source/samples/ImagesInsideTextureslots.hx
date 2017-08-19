@@ -17,7 +17,6 @@ class ImagesInsideTextureslots extends Sample
 			maxTextures:         1,
 			maxImages:          10
 		});
-		
 	}
 	
 	public override function run():Void
@@ -31,7 +30,7 @@ class ImagesInsideTextureslots extends Sample
 		peoteView.setImage({ image:0, texture:0, slot:0,
 			fit:"in",
 			filename: "assets/DejavuSans.png",
-			preload:true
+			//preload:true
 		});
 		
 		peoteView.setImage({ image:1, texture:0, slot:1, // <- same slot
@@ -39,7 +38,7 @@ class ImagesInsideTextureslots extends Sample
 			x:0,y:0,
 			w:200,h:200,
 			filename: "assets/peote_tiles.png",
-			preload:true
+			//preload:true
 		});
 		
 		peoteView.setImage({ image:2, texture:0, slot:1, // <- same slot
@@ -47,15 +46,9 @@ class ImagesInsideTextureslots extends Sample
 			x:200,y:0,
 			w:200,h:200,
 			filename: "assets/peote_font_white.png",
-			preload:true
+			//preload:true
 		});
-		/*
-		peoteView.setImage({ image:3, texture:0, slot:1, // <- same slot
-			keep:true,
-			fit:"in",
-			filename: "assets/test0023.png",
-			preload:true
-		});*/
+		
 		
 		peoteView.setProgram({ program:0, texture:0 });
 		
@@ -80,20 +73,26 @@ class ImagesInsideTextureslots extends Sample
 		
 		peoteView.setElementDefaults({displaylist:0, program:0, w:512, h:512,});
 		
+		peoteView.setElement({ element:0, x:6,   y:0,   image:0 });
+		peoteView.setElement({ element:1, x:512, y:0,	image:1 });
+		peoteView.setElement({ element:2, x:512, y:512,	image:2 });
+		
+		// show complete texture
+		peoteView.setElement({ element:3, x:0, y:512, program:0 });
+
 		var timer = new Timer(1000);
 		timer.run = function() {
 			timer.stop();
-			// use of different images
-			peoteView.setElement({ element:0, x:6,   y:0,   image:0 });
-			peoteView.setElement({ element:1, x:512, y:0,	image:1 });
-			peoteView.setElement({ element:2, x:512, y:512,	image:2 });
-			
-			// show complete texture
-			peoteView.setElement({ element:3, x:0, y:512, program:0 });
+			// overload new image inside slot 1
+			peoteView.setImage({ image:3, texture:0, slot:1, // <- same slot
+				keep:true,
+				fit:"in",
+				filename: "assets/test0023.png",
+				//preload:true
+			});
 		
 		}
 	}
-
 
 	
 }

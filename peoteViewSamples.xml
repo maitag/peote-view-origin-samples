@@ -6,15 +6,16 @@
 	<app main="samples.StartNewSample" path="Export" file="NewSample" />
 
 	<!-- or choose what sample to build with '-Dsample1' haxe condition -->
-	<app if="sample1" main="samples.GlyphTextRendering"         path="Export" file="GlyphTextRendering" />
-	<app if="sample2" main="samples.GlyphUnicodeTextRendering"  path="Export" file="GlyphUnicodeTextRendering" />
-	<app if="sample3" main="samples.MassAnim"                   path="Export" file="MassAnim" />
-	<app if="sample4" main="samples.Bunnys"                     path="Export" file="Bunnys" />
-	<app if="sample5" main="samples.BunnysTextureSwitch"        path="Export" file="BunnysTextureSwitch" />
-	<app if="sample6" main="samples.RandomLetter"               path="Export" file="RandomLetter" />
-	<app if="sample7" main="samples.Picking"                    path="Export" file="Picking" />
-	<app if="sample8" main="samples.Multitexture"               path="Export" file="Multitexture" />
-	<app if="sample9" main="samples.RenderToTexture"            path="Export" file="RenderToTexture" />
+	<app if="sample1"  main="samples.GlyphTextRendering"         path="Export" file="GlyphTextRendering" />
+	<app if="sample2"  main="samples.GlyphUnicodeTextRendering"  path="Export" file="GlyphUnicodeTextRendering" />
+	<app if="sample3"  main="samples.MassAnim"                   path="Export" file="MassAnim" />
+	<app if="sample4"  main="samples.Bunnys"                     path="Export" file="Bunnys" />
+	<app if="sample5"  main="samples.BunnysTextureSwitch"        path="Export" file="BunnysTextureSwitch" />
+	<app if="sample6"  main="samples.RandomLetter"               path="Export" file="RandomLetter" />
+	<app if="sample7"  main="samples.Picking"                    path="Export" file="Picking" />
+	<app if="sample8"  main="samples.Multitexture"               path="Export" file="Multitexture" />
+	<app if="sample9"  main="samples.RenderToTexture"            path="Export" file="RenderToTexture" />
+	<app if="sample10" main="samples.FloatZoom"                  path="Export" file="FloatZoom" />
 	
 	<!--<android target-sdk-version="26" />-->
 	

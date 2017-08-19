@@ -43,6 +43,8 @@ class MainOpenfl extends Sprite {
 	
     public var mouse_x: Int = 0;
     public var mouse_y: Int = 0;
+    public var xOffset: Int = 0;
+    public var yOffset: Int = 0;
     public var zoom: Int = 1;
 	
 	public var startTime:Float;
@@ -60,11 +62,12 @@ class MainOpenfl extends Sprite {
 
 			trace("OpenGLView.isSupported");
 			
-			// start Example
-			startTime = Timer.stamp();
-			var t:Float = Timer.stamp() - startTime;
-			
-			peoteView = new PeoteView({});
+			peoteView = new PeoteView({
+				maxDisplaylists:    1,
+				maxPrograms:        1,
+				maxTextures:        1,
+				maxImages:          0
+			});		
 
 			peoteView.setProgram( {
 				program:0,
@@ -75,8 +78,6 @@ class MainOpenfl extends Sprite {
 				displaylist:0,
 				type:DisplaylistType.SIMPLE,
 				maxElements:       1,
-				maxPrograms:       1,
-				bufferSegments:    1,
 				x:0,
 				y:0,
 				//w:300,
@@ -116,7 +117,7 @@ class MainOpenfl extends Sprite {
 	// ----------- Render Loop ------------------------------------
 	private function renderView (rect:Rectangle):Void
 	{
-		peoteView.render(Timer.stamp() - startTime, Std.int (rect.width), Std.int (rect.height), mouse_x, mouse_y, zoom);
+		peoteView.render(Std.int (rect.width), Std.int (rect.height), zoom, xOffset, yOffset);
 	}
 
 
@@ -144,19 +145,20 @@ class MainOpenfl extends Sprite {
 		//trace("onMouseMove: " + x + "," + y );
 		mouse_x = Std.int(x);
 		mouse_y = Std.int(y);
-		
+		setOffsets();
 	}
 	public function onTouchMove (x:Float, y:Float, id:Int):Void
 	{
 		//trace("onTouchMove: " + x + "," + y );
 		mouse_x = Std.int(x);
 		mouse_y = Std.int(y);
+		setOffsets();
 	}
 	public function onMouseDown (x:Float, y:Float, button:Int):Void
 	{	
 		//trace("onMouseDown: x=" + x + " y="+ y);
-		if ( button == 0) zoom++;
-		else if (button == 1 && zoom>1) zoom--;
+		//if ( button == 0) zoom++;
+		//else if (button == 1 && zoom>1) zoom--;
 	}
 	public function onMouseUp (x:Float, y:Float, button:Int):Void
 	{	
@@ -167,9 +169,14 @@ class MainOpenfl extends Sprite {
 		//trace("onmousewheel: " + deltaX + ',' + deltaY );
 		if ( deltaY>0 ) zoom++;
 		else if (zoom > 1) zoom--;
+		setOffsets();
 	}
 
 	// end Event Handler ------------------------------------------
 	// ------------------------------------------------------------
+	public function setOffsets():Void {
+		xOffset = -mouse_x;
+		yOffset = -mouse_y;
+	}
 	
 }

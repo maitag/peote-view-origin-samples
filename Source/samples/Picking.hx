@@ -87,7 +87,7 @@ class Picking extends Sample
 
 	}
 	
-	public override function onMouseDown (window:Window, x:Float, y:Float, button:Int):Void
+	public override function onMouseDown (_window:Window, x:Float, y:Float, button:Int):Void
 	{
 		// pick element number from displaylist 0
 		var e:Int = peoteView.pick(0, mouse_x, mouse_y, zoom, xOffset, yOffset);

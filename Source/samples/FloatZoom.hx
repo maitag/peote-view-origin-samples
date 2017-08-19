@@ -1,21 +1,14 @@
-package testing;
+package samples;
 
 import haxe.Timer;
 
 import peote.view.PeoteView;
 import peote.view.displaylist.DisplaylistType;
 
-import samples.Sample;
-
-import lime.ui.Window;
-
 class FloatZoom extends Sample
 {
 	public override function init() 
 	{
-		// set Time
-		startTime = Timer.stamp();
-		
 		peoteView = new PeoteView({
 			maxDisplaylists:     4,
 			maxPrograms:         4,
@@ -54,8 +47,6 @@ class FloatZoom extends Sample
 		
 		
 		var fz:Float = 0.1;
-		//peoteView.setDisplaylist({ displaylist:0, zoom:fz });
-		
 		
 		var timer = new Timer(16);
 		timer.run = function() {
@@ -67,10 +58,6 @@ class FloatZoom extends Sample
 			trace(fz);
 		}
 		
-	}
-	public override function setOffsets():Void {
-		xOffset = -mouse_x;
-		yOffset = -mouse_y;
 	}
 	
 }

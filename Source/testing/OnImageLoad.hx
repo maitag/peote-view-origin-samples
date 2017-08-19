@@ -13,9 +13,6 @@ class OnImageLoad extends Sample
 {
 	public override function init() 
 	{
-		// set Time
-		startTime = Timer.stamp();
-		
 		peoteView = new PeoteView({
 			maxDisplaylists:     2,
 			maxPrograms:         3,

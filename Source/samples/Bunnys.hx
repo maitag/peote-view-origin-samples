@@ -39,7 +39,6 @@ import peote.view.displaylist.DisplaylistType;
 
 class Bunnys extends Sample
 {
-		
 	var frames:Int = 0;
 	var render_time:Float = 0;
 	var update_time:Float = 0;

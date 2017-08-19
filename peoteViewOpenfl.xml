@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="PeoteViewOpenfl" package="de.peote.view" version="0.6.5" company="Sylvio Sell - maitag" />
+	<app main="MainOpenfl" path="Export" file="peoteViewOpenfl" />
+	
+	<!--<window width="200" height="200" />-->
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="peote-view" />
+
+	<!-- shader float precision for html5 and raspberry pi and android -->
+	<haxedef name="peote_vert_medium_precision" if="html5||rpi||android" />
+	<haxedef name="peote_frag_medium_precision" if="html5||rpi||android" />
+	<!-- <haxedef name="debugshader" /> -->
+	
+	<assets path="Assets" rename="assets" exclude="*.svg" />
+	<icon path="Assets/openfl.svg" />
+	
+</project>

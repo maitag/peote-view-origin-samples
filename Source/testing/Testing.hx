@@ -11,10 +11,7 @@ import lime.ui.Window;
 class Testing extends Sample
 {
 	public override function init() 
-	{
-		// set Time
-		startTime = Timer.stamp();
-		
+	{		
 		peoteView = new PeoteView({
 			maxDisplaylists:    10,
 			maxPrograms:       100,
@@ -253,10 +250,10 @@ class Testing extends Sample
 
 	}
 	
-	public override function onMouseDown (window:Window, x:Float, y:Float, button:Int):Void
+	public override function onMouseDown (_window:Window, x:Float, y:Float, button:Int):Void
 	{
 		// pick element number from displaylist 0
-		var e:Int = peoteView.pick(0, Timer.stamp() - startTime, mouse_x, mouse_y, zoom, xOffset, yOffset);
+		var e:Int = peoteView.pick(0, mouse_x, mouse_y, zoom, xOffset, yOffset);
 		if (e != -1)
 		{
 			peoteView.setElement( { element:e,

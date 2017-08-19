@@ -93,7 +93,7 @@ class StartNewSample extends Sample
 			type: DType.ANIM |
 			      DType.RGBA |
 				  DType.ROTATION |
-				  //DType.PICKING |
+				  DType.PICKING |
 				  DType.ZINDEX
 				,
 			
@@ -113,8 +113,6 @@ class StartNewSample extends Sample
 			g:0.5,
 			b:0.8,
 			a:0.8,
-			
-			//renderToImage:0, // (not yet)
 			
 			blend:1, // alpha blending
 			
@@ -156,8 +154,8 @@ class StartNewSample extends Sample
 
 	}
 
-/*	
-	public override function onMouseDown (window:Window, x:Float, y:Float, button:Int):Void
+
+	public override function onMouseDown (_window:Window, x:Float, y:Float, button:Int):Void
 	{
 		// pick element number from displaylist 0
 		var e:Int = peoteView.pick(0, mouse_x, mouse_y, zoom, xOffset, yOffset);
@@ -170,6 +168,5 @@ class StartNewSample extends Sample
 		
 	}
 	
-*/
 
 }
