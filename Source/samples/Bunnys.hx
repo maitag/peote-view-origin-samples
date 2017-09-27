@@ -72,16 +72,13 @@ class Bunnys extends Sample
 			maxTextures:         2,
 			maxImages:           4
 		});
-		
 	}
 	
 	public override function run():Void
 	{
-		
 		// ------------------------------------------------------
 		// ----------------------- FONT  ------------------------
 		// ------------------------------------------------------
-		
 		
 		// --------------------- TEXTURE (font) -----------------
 		peoteView.setTexture( {
@@ -91,7 +88,6 @@ class Bunnys extends Sample
 		});
 
 		// ------------------- IMAGE (font) --------------------------
-
 		peoteView.setImage({ image:0, texture:0, filename:"assets/peote_font_white.png" });
 		
 		// ---------------- PROGRAM SHADER (font) ---------------------
@@ -105,7 +101,6 @@ class Bunnys extends Sample
 		// ------------------------------------------------------
 		// ----------------------- TILES ------------------------
 		// ------------------------------------------------------
-		
 
 		// --------------------- TEXTURE (flowers, bunnys or letters ;) -----------------
 		peoteView.setTexture({
@@ -134,13 +129,11 @@ class Bunnys extends Sample
 		// -----------------------------------------------------
 		// ---------------- DISPLAYLISTS -----------------------
 		// -----------------------------------------------------
-
 		// Displaylist for massive tiles
 		peoteView.setDisplaylist( { displaylist:0, type:DType.ANIM|DType.ROTATION|DType.RGBA,
 			maxElements:max_bunnys,
 			z:0
 		});
-
 		// Displaylist for FPS
 		peoteView.setDisplaylist( { displaylist:1, type:DType.SIMPLE|DType.RGBA,
 			maxElements:8,
@@ -269,7 +262,7 @@ class Bunnys extends Sample
 	}
 	
 	private function refreshFPS():Void
-	{		
+	{	
 		//update_time = Timer.stamp();		
 		// FPS:
 		//trace("FPS: " + frames + " - render time: "+Math.round(render_time/frames*100000)/100000+" - update_time: " + Math.round((Timer.stamp() - update_time)*100000)/100000);
@@ -286,7 +279,7 @@ class Bunnys extends Sample
 	
 	public override function setOffsets():Void {
 		super.setOffsets();
-		peoteView.setDisplaylist( { displaylist:0, zoom:zoom, pivotX:mouse_x, pivotY:mouse_y  } );
+		if (peoteView.getDisplaylist({displaylist:0}) != null) peoteView.setDisplaylist( { displaylist:0, zoom:zoom, pivotX:mouse_x, pivotY:mouse_y  } );
 	}
 
 	// keyboard input

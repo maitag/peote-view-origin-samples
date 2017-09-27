@@ -329,7 +329,7 @@ class BunnysTextureSwitch extends Sample
 	
 	public override function setOffsets():Void {
 		super.setOffsets();
-		peoteView.setDisplaylist( { displaylist:0, zoom:zoom, pivotX:mouse_x, pivotY:mouse_y  } );
+		if (peoteView.getDisplaylist({displaylist:0}) != null) peoteView.setDisplaylist( { displaylist:0, zoom:zoom, pivotX:mouse_x, pivotY:mouse_y  } );
 	}
 
 	// keyboard input
